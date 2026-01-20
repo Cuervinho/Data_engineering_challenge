@@ -1,3 +1,13 @@
+"""
+Docstring for codes.ingesta
+
+Ingesta incremental de datos de creditos
+
+Este archivo simula un proceso de streaming procesando un dataset de 20,000 líneas 
+mediante micro-batches. Los datos se ingestan en la capa Bronze con formato Parquet.
+
+"""
+
 import pandas as pd
 import os
 import time
@@ -8,24 +18,6 @@ SOURCE_PATH = "source_data/credit_events.csv"
 TARGET_BASE_PATH = "data/bronze"
 
 def streaming(batch_size=1000, sleep_time=15):
-    """
-    Obtiene el precio y la información bursátil actual de una acción
-    usando el servicio Finnhub.
-
-    Argumentos:
-        symbol (str): simbolo en los mercados de la acción.
-        api_key (str): clave de acceso personal para la API de Finnhub.
-        max_retries (int, optional): El número máximo de veces que intentará
-                                     llamar al servicio antes de rendirse.
-                                     Por defecto son 5 intentos.
-
-    Retorna:
-        Un diccionario con la información del precio del activo:
-        'c' (precio actual), 'o' (precio de apertura), 'h' (precio máximo),
-        'l' (precio mínimo), 'pc' (precio de cierre anterior) y 't' (timestamp).
-        Devuelve 'None' si se agotan todos los reintentos
-        o si ocurre un error grave e inesperado.
-    """
     if not os.path.exists(SOURCE_PATH):
         print(f"No se encontró {SOURCE_PATH}")
         return
