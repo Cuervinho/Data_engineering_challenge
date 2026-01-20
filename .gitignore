@@ -1,6 +1,6 @@
-# Ignorar datos
-source_data/
-data/
+# # Ignorar datos
+# source_data/
+# data/
 
 
 # Byte-compiled / optimized / DLL files
