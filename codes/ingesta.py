@@ -26,7 +26,10 @@ def streaming(batch_size=1000, sleep_time=15):
         Devuelve 'None' si se agotan todos los reintentos
         o si ocurre un error grave e inesperado.
     """
-
+    if not os.path.exists(SOURCE_PATH):
+        print(f"No se encontró {SOURCE_PATH}")
+        return
+    
     print(f"Iniciando ingesta con Pandas...")
     
     # 1. Leer el archivo fuente
